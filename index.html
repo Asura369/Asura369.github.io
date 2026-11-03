@@ -8,409 +8,258 @@
   <!-- SEO -->
   <title>Kevin Lin — Software Engineer</title>
   <meta name="description"
-    content="Kevin Lin is a Software Engineer building scalable backend services, ML pipelines, and full-stack applications. Drexel University CS, Class of 2026.">
+    content="Kevin Lin is a software engineer building backend services, data pipelines, and the internal tools that make them usable. Comcast, Penn Mutual. Drexel University CS, 2026.">
   <meta name="author" content="Kevin Lin">
+  <meta name="theme-color" content="#E6E8E6">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Kevin Lin — Software Engineer">
   <meta property="og:description"
-    content="Software Engineer building scalable backend services, ML pipelines, and full-stack applications.">
+    content="Backend services, data pipelines, and the internal tools that make them usable.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://asura369.github.io">
 
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
+  <!-- Fonts: preconnect + link beats an @import inside the stylesheet -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="index.css?v=2">
+  <link rel="stylesheet" href="index.css?v=5">
 </head>
 
 <body>
 
+  <a class="skip" href="#main">Skip to content</a>
+
   <!-- ============================================================
-       Navigation
+       Rail — vertical instrument on desktop, top bar on mobile
        ============================================================ -->
-  <nav class="nav" id="nav" aria-label="Main navigation">
-    <div class="nav__inner">
-      <a href="#hero" class="nav__logo" id="nav-logo"><span class="nav__mark">KL</span> Kevin Lin <em>/ 2026</em></a>
+  <header class="rail" id="nav">
+    <a class="rail__mark" href="#main" aria-label="Kevin Lin — top of page">KL</a>
 
-      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+    <nav class="rail__nav" id="nav-links" aria-label="Sections">
+      <a class="rail__link" href="#experience"><span class="rail__tick" aria-hidden="true"></span>Experience</a>
+      <a class="rail__link" href="#projects"><span class="rail__tick" aria-hidden="true"></span>Work</a>
+      <a class="rail__link" href="#skills"><span class="rail__tick" aria-hidden="true"></span>Toolkit</a>
+      <a class="rail__link" href="#contact"><span class="rail__tick" aria-hidden="true"></span>Contact</a>
+    </nav>
 
-      <ul class="nav__links" id="nav-links" role="list">
-        <li><a href="#experience" class="nav__link" id="nav-experience">Experience</a></li>
-        <li><a href="#projects" class="nav__link" id="nav-projects">Projects</a></li>
-        <li><a href="#skills" class="nav__link" id="nav-skills">Skills</a></li>
-        <li><a href="#contact" class="nav__link" id="nav-contact">Contact</a></li>
-      </ul>
+    <a class="rail__top" href="#main">Top <span aria-hidden="true">↑</span></a>
+
+    <div class="rail__meter" aria-hidden="true">
+      <span class="rail__meter-fill" id="scroll-meter"></span>
     </div>
-  </nav>
 
-  <main>
+    <button class="rail__toggle" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+      aria-controls="nav-links">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main class="page" id="main">
+
     <!-- ============================================================
          Hero
          ============================================================ -->
-    <section class="hero" id="hero">
-      <div class="hero__bg" aria-hidden="true"></div>
-      <div class="hero__grid" aria-hidden="true"></div>
+    <section class="hero" id="hero" aria-labelledby="hero-name">
+      <div class="hero__intro">
+        <h1 class="hero__name" id="hero-name">Kevin Lin</h1>
 
-      <div class="container hero__content">
-        <p class="hero__greeting">Hello, I'm</p>
-        <h1 class="hero__name">
-          Kevin <span class="accent">Lin</span>
-        </h1>
-        <p class="hero__tagline">
-          Building clean backend logic, reliable data pipelines,
-          and responsive interfaces. Focused on writing fast,
-          resilient code for teams where craftsmanship matters.
+        <p class="hero__lead">
+          Backend systems, applied ML, and product engineering. I build clean backend logic, reliable data pipelines,
+          and responsive interfaces, and I care about code that stays fast and resilient under real load.
         </p>
-        <div class="hero__availability"><span></span> Available for thoughtful engineering work</div>
-        <div class="hero__cta-group">
-          <a href="#contact" class="btn btn--primary" id="hero-cta-contact">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-              <polyline points="22,6 12,13 2,6" />
-            </svg>
-            Get In Touch
-          </a>
-          <a href="#experience" class="btn btn--outline" id="hero-cta-experience">
-            View My Work
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-        </div>
-        <div class="hero__coordinates" aria-label="Professional focus">
-          <span>01 / Backend systems</span>
-          <span>02 / Applied ML</span>
-          <span>03 / Product engineering</span>
+
+        <div class="hero__actions">
+          <a class="btn" href="#contact">Get in touch</a>
+          <a class="btn btn--ghost" href="#projects">See the work <span aria-hidden="true">↓</span></a>
         </div>
       </div>
 
-      <div class="hero__stamp" aria-hidden="true">
-        <span>BUILDING<br>WITH INTENT</span>
-        <i>KL</i>
-      </div>
-
-      <div class="hero__scroll" aria-hidden="true">
-        <span>Scroll</span>
-        <div class="hero__scroll-line"></div>
-      </div>
+      <dl class="facts">
+        <div class="fact">
+          <dt>Status</dt>
+          <dd><span class="dot" aria-hidden="true"></span>Open to work</dd>
+        </div>
+        <div class="fact">
+          <dt>Worked at</dt>
+          <dd>Comcast · Penn Mutual</dd>
+        </div>
+        <div class="fact">
+          <dt>Studying</dt>
+          <dd>Drexel University, CS ’26</dd>
+        </div>
+      </dl>
     </section>
 
     <!-- ============================================================
          Experience
          ============================================================ -->
-    <section class="experience" id="experience">
-      <div class="container">
-        <div class="experience__header reveal">
-          <p class="section-label">01 — Experience</p>
-          <h2 class="section-title">Where I've Worked</h2>
-          <p class="section-subtitle">Professional experience building production systems at scale.</p>
+    <section class="section" id="experience" aria-labelledby="experience-title">
+      <div class="head reveal">
+        <div class="head__text">
+          <h2 class="head__title" id="experience-title">Where I’ve worked</h2>
+          <p class="head__sub">Professional experience building production systems at scale.</p>
         </div>
+        <p class="head__meta">2022 — 2024 · 3 roles</p>
+      </div>
 
-        <div class="timeline reveal-stagger">
-
-          <!-- Penn Mutual -->
-          <div class="timeline__item reveal" style="--stagger-index: 0">
-            <span class="timeline__meta">2024</span>
-            <h3 class="timeline__role">Software Engineer</h3>
-            <p class="timeline__company">Penn Mutual<span class="timeline__location"></span></p>
-            <p class="timeline__desc">
-              Worked on an engineering team building financial pipelines handling 100k+ daily transactions. Learned how
-              to
-              design reliable data systems and work in a highly regulated industry.
+      <div class="records">
+        <article class="rec reveal">
+          <p class="rec__meta"><span>2024</span>Penn Mutual</p>
+          <div class="rec__body">
+            <h3 class="rec__title">Software Engineer</h3>
+            <p class="rec__desc">
+              Built financial data pipelines carrying 100k+ transactions a day on AWS and Spark. Learned how to design
+              reliable data systems, and what it takes to ship in a tightly regulated industry: auditability,
+              backfills, and no surprises on the ledger.
             </p>
-            <div class="timeline__tags">
-              <span class="tag">AWS</span>
-              <span class="tag">Spark</span>
-              <span class="tag">CI/CD</span>
-              <span class="tag">ETL</span>
-              <span class="tag">SQL</span>
-            </div>
+            <ul class="rec__stack" role="list">
+              <li>AWS</li><li>Spark</li><li>ETL</li><li>SQL</li><li>CI/CD</li>
+            </ul>
           </div>
+        </article>
 
-          <!-- Comcast — ML Engineer -->
-          <div class="timeline__item reveal" style="--stagger-index: 1">
-            <span class="timeline__meta">2023</span>
-            <h3 class="timeline__role">Machine Learning Engineer</h3>
-            <p class="timeline__company">Comcast<span class="timeline__location"></span></p>
-            <p class="timeline__desc">
-              Worked on the personalization team building ranking algorithms and APIs powering content recommendations
-              for Comcast video platform users. Learned how to ship production-level ML features at scale.
+        <article class="rec reveal">
+          <p class="rec__meta"><span>2023</span>Comcast</p>
+          <div class="rec__body">
+            <h3 class="rec__title">Machine Learning Engineer</h3>
+            <p class="rec__desc">
+              Shipped ranking algorithms and recommendation APIs on the personalization team, putting production-level
+              ML features in front of Comcast video platform users at scale.
             </p>
-            <div class="timeline__tags">
-              <span class="tag">Python</span>
-              <span class="tag">APIs</span>
-              <span class="tag">Databricks</span>
-              <span class="tag">AWS</span>
-              <span class="tag">MLOps</span>
-              <span class="tag">CI/CD</span>
-            </div>
+            <ul class="rec__stack" role="list">
+              <li>Python</li><li>Databricks</li><li>AWS</li><li>MLOps</li><li>APIs</li>
+            </ul>
           </div>
+        </article>
 
-          <!-- Comcast — SWE -->
-          <div class="timeline__item reveal" style="--stagger-index: 2">
-            <span class="timeline__meta">2022</span>
-            <h3 class="timeline__role">Software Engineer</h3>
-            <p class="timeline__company">Comcast<span class="timeline__location"></span></p>
-            <p class="timeline__desc">
-              Built a full-stack Django web application for operations teams to visualize and configure network load
-              balancers. Learned how to build internal tools that simplify complex infrastructure management.
+        <article class="rec reveal">
+          <p class="rec__meta"><span>2022</span>Comcast</p>
+          <div class="rec__body">
+            <h3 class="rec__title">Software Engineer</h3>
+            <p class="rec__desc">
+              Built a full-stack Django web application that lets operations teams visualize and configure network load
+              balancers, and learned how to build internal tools that simplify complex infrastructure management.
             </p>
-            <div class="timeline__tags">
-              <span class="tag">Django</span>
-              <span class="tag">Python</span>
-              <span class="tag">REST APIs</span>
-              <span class="tag">JavaScript</span>
-            </div>
+            <ul class="rec__stack" role="list">
+              <li>Django</li><li>Python</li><li>REST APIs</li><li>JavaScript</li>
+            </ul>
           </div>
-
-        </div>
+        </article>
       </div>
     </section>
 
     <!-- ============================================================
          Projects
          ============================================================ -->
-    <section class="projects" id="projects">
-      <div class="container">
-        <div class="projects__header reveal">
-          <p class="section-label">02 — Selected work</p>
-          <h2 class="section-title">Things I've Built</h2>
-          <p class="section-subtitle">Selected projects showcasing full-stack development, AI/ML, and cloud
-            infrastructure.</p>
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="head reveal">
+        <div class="head__text">
+          <h2 class="head__title" id="projects-title">Things I’ve built</h2>
+          <p class="head__sub">Selected projects across full-stack development, AI/ML, and cloud infrastructure.</p>
         </div>
+        <p class="head__meta">3 projects</p>
+      </div>
 
-        <div class="projects__grid reveal-stagger">
-
-          <!-- Prism -->
-          <article class="project-card reveal" style="--stagger-index: 1" id="project-prism">
-            <div class="project-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                <polyline points="2 17 12 22 22 17" />
-                <polyline points="2 12 12 17 22 12" />
-              </svg>
+      <div class="records">
+        <article class="rec rec--project reveal">
+          <p class="rec__meta"><span>AI content automation</span>Human-in-the-loop system</p>
+          <div class="rec__body">
+            <div class="rec__head">
+              <h3 class="rec__title">Prism</h3>
+              <a href="https://github.com/Asura369/prism" class="rec__link" target="_blank" rel="noopener noreferrer">GitHub
+                <span aria-hidden="true">↗</span></a>
             </div>
-            <h3 class="project-card__title">Prism (AI Content Automation Platform)</h3>
-            <p class="project-card__desc">
-              A human-in-the-loop content automation system that turns one trending topic into publish-ready social
-              posts — news ingestion and scoring through generated copy and rendered images, in seconds. Post formats,
-              data sources, and AI models are swappable plugins, with background job orchestration, provider fallbacks,
-              stale job cleanup, and policy gates that stop a bad post before review. The full review experience lets
-              editors edit, approve or reject, and export finished content in one click.
+            <p class="rec__desc">
+              Turns one trending topic into publish-ready social posts. News ingestion and scoring run through
+              generated copy and rendered images in seconds. Post formats, data sources, and AI models are swappable
+              plugins, with background job orchestration, provider fallbacks, stale-job cleanup, and policy gates that
+              stop a bad post before review. Editors edit, approve or reject, and export finished content in one click.
             </p>
-            <div class="project-card__tags">
-              <span class="tag">Python</span>
-              <span class="tag">FastAPI</span>
-              <span class="tag">React</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">SQLite</span>
-            </div>
-            <div class="project-card__links">
-              <a href="https://github.com/Asura369/prism" class="project-card__link" target="_blank"
-                rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                </svg>
-                GitHub
-              </a>
-            </div>
-          </article>
+            <ul class="rec__stack" role="list">
+              <li>Python</li><li>FastAPI</li><li>React</li><li>TypeScript</li><li>SQLite</li>
+            </ul>
+          </div>
+        </article>
 
-          <!-- SkyIDE -->
-          <article class="project-card reveal" style="--stagger-index: 0" id="project-skyide">
-            <div class="project-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="16 18 22 12 16 6" />
-                <polyline points="8 6 2 12 8 18" />
-              </svg>
+        <article class="rec rec--project reveal">
+          <p class="rec__meta"><span>Browser-based IDE</span>Philadelphia 250th</p>
+          <div class="rec__body">
+            <div class="rec__head">
+              <h3 class="rec__title">SkyIDE</h3>
+              <div class="rec__links">
+                <a href="http://skyscrapergames.org:3000/" class="rec__link" target="_blank"
+                  rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/Asura369" class="rec__link" target="_blank" rel="noopener noreferrer">GitHub
+                  <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
-            <h3 class="project-card__title">SkyIDE</h3>
-            <p class="project-card__desc">
-              A browser-based IDE built for Philadelphia's 250th anniversary. Architected scalable AWS infrastructure
-              enabling students to deploy games to a skyscraper via a custom block-to-Python transpiler. Integrated
-              Google Blockly with a Flask backend for bi-directional code translation between visual blocks and
-              syntax-highlighted Python.
+            <p class="rec__desc">
+              An IDE for Philadelphia’s 250th anniversary where students deploy games to a skyscraper through a custom
+              block-to-Python transpiler. Architected the scalable AWS infrastructure behind it and integrated Google Blockly
+              with a Flask backend for bi-directional translation between visual blocks and syntax-highlighted Python.
             </p>
-            <div class="project-card__tags">
-              <span class="tag">React.js</span>
-              <span class="tag">Flask</span>
-              <span class="tag">AWS</span>
-              <span class="tag">Google Blockly</span>
-            </div>
-            <div class="project-card__links">
-              <a href="http://skyscrapergames.org:3000/" class="project-card__link" target="_blank"
-                rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path
-                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
-                Live Demo
-              </a>
-              <a href="https://github.com/Asura369" class="project-card__link" target="_blank"
-                rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                </svg>
-                GitHub
-              </a>
-            </div>
-          </article>
+            <ul class="rec__stack" role="list">
+              <li>React.js</li><li>Flask</li><li>AWS</li><li>Google Blockly</li>
+            </ul>
+          </div>
+        </article>
 
-          <!-- The All-Inclusive App -->
-          <article class="project-card reveal" style="--stagger-index: 2" id="project-all-inclusive">
-            <div class="project-card__icon" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="7" height="7" />
-                <rect x="14" y="3" width="7" height="7" />
-                <rect x="14" y="14" width="7" height="7" />
-                <rect x="3" y="14" width="7" height="7" />
-              </svg>
+        <article class="rec rec--project reveal">
+          <p class="rec__meta"><span>Multi-app React toolkit</span>Collection of mini-apps</p>
+          <div class="rec__body">
+            <div class="rec__head">
+              <h3 class="rec__title">The All-Inclusive App</h3>
+              <div class="rec__links">
+                <a href="https://the-all-inclusive-app.vercel.app/" class="rec__link" target="_blank"
+                  rel="noopener noreferrer">Live demo <span aria-hidden="true">↗</span></a>
+                <a href="https://github.com/Asura369/The-All-Inclusive-App" class="rec__link" target="_blank"
+                  rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+              </div>
             </div>
-            <h3 class="project-card__title">The All-Inclusive App</h3>
-            <p class="project-card__desc">
-              A React application that bundles multiple mini-apps in one place — a collection of useful tools and fun
-              games. Features include a QR code generator, tic tac toe, and more.
+            <p class="rec__desc">
+              A React app that bundles multiple mini-apps in one place — a QR code generator, tic tac toe, and more — a
+              collection of useful tools and fun games.
             </p>
-            <div class="project-card__tags">
-              <span class="tag">React</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">Vercel</span>
-            </div>
-            <div class="project-card__links">
-              <a href="https://the-all-inclusive-app.vercel.app/" class="project-card__link" target="_blank"
-                rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path
-                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
-                Live Demo
-              </a>
-              <a href="https://github.com/Asura369/The-All-Inclusive-App" class="project-card__link" target="_blank"
-                rel="noopener noreferrer">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                </svg>
-                GitHub
-              </a>
-            </div>
-          </article>
-
-        </div>
+            <ul class="rec__stack" role="list">
+              <li>React</li><li>JavaScript</li><li>Vercel</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </section>
 
     <!-- ============================================================
-         Skills
+         Toolkit
          ============================================================ -->
-    <section class="skills" id="skills">
-      <div class="container">
-        <div class="skills__header reveal">
-          <p class="section-label">03 — Toolkit</p>
-          <h2 class="section-title">Technologies & Tools</h2>
-          <p class="section-subtitle">Languages, frameworks, and platforms I work with regularly.</p>
+    <section class="section" id="skills" aria-labelledby="skills-title">
+      <div class="head reveal">
+        <div class="head__text">
+          <h2 class="head__title" id="skills-title">Tools I reach for</h2>
+          <p class="head__sub">Languages, frameworks, and platforms I work with regularly.</p>
         </div>
+        <p class="head__meta">3 groups</p>
+      </div>
 
-        <div class="skills__grid reveal-stagger">
-
-          <!-- Languages -->
-          <div class="skill-group reveal" style="--stagger-index: 0">
-            <h3 class="skill-group__title">
-              <span class="skill-group__icon" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="16 18 22 12 16 6" />
-                  <polyline points="8 6 2 12 8 18" />
-                </svg>
-              </span>
-              Languages
-            </h3>
-            <div class="skill-group__list">
-              <span class="skill-chip">Python</span>
-              <span class="skill-chip">Java</span>
-              <span class="skill-chip">Scala</span>
-              <span class="skill-chip">C</span>
-              <span class="skill-chip">JavaScript</span>
-              <span class="skill-chip">TypeScript</span>
-              <span class="skill-chip">SQL</span>
-            </div>
-          </div>
-
-          <!-- Frameworks & DBs -->
-          <div class="skill-group reveal" style="--stagger-index: 1">
-            <h3 class="skill-group__title">
-              <span class="skill-group__icon" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                  <polyline points="2 17 12 22 22 17" />
-                  <polyline points="2 12 12 17 22 12" />
-                </svg>
-              </span>
-              Frameworks & Databases
-            </h3>
-            <div class="skill-group__list">
-              <span class="skill-chip">React.js</span>
-              <span class="skill-chip">Node.js</span>
-              <span class="skill-chip">Express.js</span>
-              <span class="skill-chip">PyTorch</span>
-              <span class="skill-chip">Pandas</span>
-              <span class="skill-chip">NumPy</span>
-              <span class="skill-chip">Django</span>
-              <span class="skill-chip">Flask</span>
-              <span class="skill-chip">PostgreSQL</span>
-              <span class="skill-chip">MongoDB</span>
-            </div>
-          </div>
-
-          <!-- Tools & Platforms -->
-          <div class="skill-group reveal" style="--stagger-index: 2">
-            <h3 class="skill-group__title">
-              <span class="skill-group__icon" aria-hidden="true">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-                </svg>
-              </span>
-              Tools & Platforms
-            </h3>
-            <div class="skill-group__list">
-              <span class="skill-chip">AWS</span>
-              <span class="skill-chip">Docker</span>
-              <span class="skill-chip">Git</span>
-              <span class="skill-chip">Databricks</span>
-              <span class="skill-chip">Apache Airflow</span>
-              <span class="skill-chip">Postman</span>
-              <span class="skill-chip">Concourse</span>
-              <span class="skill-chip">Jenkins</span>
-              <span class="skill-chip">LLMs</span>
-            </div>
-          </div>
-
+      <div class="spec">
+        <div class="spec__row reveal">
+          <p class="spec__key">Languages</p>
+          <p class="spec__val"><span>Python</span><span>Java</span><span>Scala</span><span>C</span><span>JavaScript</span><span>TypeScript</span><span>SQL</span></p>
+        </div>
+        <div class="spec__row reveal">
+          <p class="spec__key">Frameworks &amp; databases</p>
+          <p class="spec__val"><span>React.js</span><span>Node.js</span><span>Express.js</span><span>PyTorch</span><span>Pandas</span><span>NumPy</span><span>Django</span><span>Flask</span><span>PostgreSQL</span><span>MongoDB</span></p>
+        </div>
+        <div class="spec__row reveal">
+          <p class="spec__key">Platforms &amp; tools</p>
+          <p class="spec__val"><span>AWS</span><span>Docker</span><span>Git</span><span>Databricks</span><span>Apache Airflow</span><span>Postman</span><span>Concourse</span><span>Jenkins</span><span>LLMs</span></p>
         </div>
       </div>
     </section>
@@ -418,70 +267,44 @@
     <!-- ============================================================
          Contact
          ============================================================ -->
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="contact__inner reveal">
-          <p class="section-label">04 — Contact</p>
-          <h2 class="section-title">Let's Connect</h2>
-          <p class="section-subtitle">
-            I'm always open to new opportunities, collaborations, or just a good conversation about technology.
-          </p>
+    <section class="section section--contact" id="contact" aria-labelledby="contact-title">
+      <div class="head reveal">
+        <h2 class="contact__title" id="contact-title">Let’s connect.</h2>
+        <p class="contact__sub">
+          I’m always open to new opportunities, collaborations, or just a good conversation about technology.
+        </p>
 
-          <div class="contact__links">
-            <!-- Email -->
-            <div class="contact__email-wrapper">
-              <button class="contact__link" id="contact-email" type="button" aria-haspopup="dialog">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                  <polyline points="22,6 12,13 2,6" />
-                </svg>
-                Email
-              </button>
+        <div class="contact__links">
+          <div class="contact__email-wrapper">
+            <button class="contact__link" id="contact-email" type="button" aria-haspopup="dialog">
+              Email
+              <span class="arrow" aria-hidden="true">↗</span>
+            </button>
 
-              <!-- Email Popup -->
-              <div class="email-popup" id="email-popup" role="dialog" aria-label="Email address" hidden>
-                <div class="email-popup__content">
-                  <span class="email-popup__address" id="email-address">linkevin1220@gmail.com</span>
-                  <button class="email-popup__copy" id="email-copy" type="button" aria-label="Copy email address">
-                    <svg class="email-popup__copy-icon" id="email-copy-icon" width="18" height="18" viewBox="0 0 24 24"
-                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-                    </svg>
-                    <svg class="email-popup__check-icon" id="email-check-icon" width="18" height="18" viewBox="0 0 24 24"
-                      fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                      style="display:none">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                  </button>
-                </div>
+            <div class="email-popup" id="email-popup" role="dialog" aria-label="Email address" hidden>
+              <div class="email-popup__content">
+                <span class="email-popup__address" id="email-address">linkevin1220@gmail.com</span>
+                <button class="email-popup__copy" id="email-copy" type="button" aria-label="Copy email address">
+                  <svg id="email-copy-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                  </svg>
+                  <svg id="email-check-icon" width="15" height="15" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"
+                    style="display:none" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </button>
               </div>
             </div>
-
-            <!-- GitHub -->
-            <a href="https://github.com/Asura369" class="contact__link" id="contact-github" target="_blank"
-              rel="noopener noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path
-                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-              </svg>
-              GitHub
-            </a>
-
-            <!-- LinkedIn -->
-            <a href="https://linkedin.com/in/kevinlin3398/" class="contact__link" id="contact-linkedin" target="_blank"
-              rel="noopener noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-              LinkedIn
-            </a>
           </div>
+
+          <a href="https://github.com/Asura369" class="contact__link" target="_blank" rel="noopener noreferrer">GitHub
+            <span class="arrow" aria-hidden="true">↗</span></a>
+
+          <a href="https://linkedin.com/in/kevinlin3398/" class="contact__link" target="_blank"
+            rel="noopener noreferrer">LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
     </section>
@@ -491,10 +314,15 @@
        Footer
        ============================================================ -->
   <footer class="footer">
-    <div class="container">
-      <p class="footer__text">&copy; 2026 Kevin Lin.</p>
+    <div class="page footer__inner">
+      <p class="footer__text">© 2026 Kevin Lin</p>
+      <p class="footer__text">Philadelphia, PA</p>
     </div>
   </footer>
+
+  <noscript>
+    <style>.reveal { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
 
   <script src="index.js"></script>
 </body>
